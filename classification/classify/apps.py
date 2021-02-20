@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class PredictConfig(AppConfig):
+class ClassifyConfig(AppConfig):
     name = 'classify'

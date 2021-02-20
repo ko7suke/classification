@@ -2,21 +2,21 @@ from django.shortcuts import redirect
 from django.template import loader
 from django.http import HttpResponse
 
-from .forms import PredictForm
-from .models import Predict
+from .forms import ClassifyForm
+from .models import Classify
 
 
 def form(request):
-    context = {'form': PredictForm()}
+    context = {'form': ClassifyForm()}
     template = loader.get_template("classify/form.html")
     return HttpResponse(template.render(context, request))
 
 
-def predict(request):
+def classify(request):
     if not request.method == 'POST':
         return redirect('classify:form')
 
-    prediction_form = PredictForm(request.POST, request.FILES)
+    prediction_form = ClassifyForm(request.POST, request.FILES)
     if not prediction_form.is_valid():
         raise ValueError('Formが不正です')
 

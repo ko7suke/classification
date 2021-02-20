@@ -5,5 +5,5 @@ from . import views
 app_name = 'classify'
 urlpatterns = [
     path('', views.form, name='form'),
-    path('classify/', views.predict, name='classify'),
+    path('classify/', views.classify, name='classify'),
 ]

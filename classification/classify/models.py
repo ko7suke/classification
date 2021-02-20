@@ -12,10 +12,10 @@ graph = tf.get_default_graph()
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 
-class Predict(models.Model):
+class Classify(models.Model):
     image = models.ImageField(upload_to='images')
 
-    def predict(self):
+    def classify(self):
         IMAGE_SIZE = 224
         MODEL_FILE_PATH = './classify/classification_models/vgg16_transfer_gender.h5'
         labels = ["man", "woman"]
@@ -34,11 +34,11 @@ class Predict(models.Model):
             X = [data]
             X = np.asarray(X)
 
-            result = model.predict([X])[0]
-            predicted = result.argmax()
-            percentage = int(result[predicted] * 100)
+            result = model.classify([X])[0]
+            classified = result.argmax()
+            percentage = int(result[classified] * 100)
 
-            return labels[predicted], percentage
+            return labels[classified], percentage
 
     def image_src(self):
         with self.image.open() as img:

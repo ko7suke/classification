@@ -1,8 +1,8 @@
-{% extends 'predict/base.html' %}
-{% block title %}推定結果{% endblock %}
+{% extends 'classify/base.html' %}
+{% block title %}分類結果{% endblock %}
 {% block content %}
 <div>
-    <h4 class="mt-4 mb-4 border-bottom">推定結果</h4>
+    <h4 class="mt-4 mb-4 border-bottom">分類結果</h4>
     <table class="table table-sm">
         <div class="table-responsive">
             <table class="table align-middle">
@@ -10,8 +10,8 @@
                     <tr>
                         <th scope="col" class="text-center">ファイル名</th>
                         <th scope="col" class="text-center">画像ファイル</th>
-                        <th scope="col" class="text-center">推定結果</th>
-                        <th scope="col" class="text-center">推定確率</th>
+                        <th scope="col" class="text-center">分類結果</th>
+                        <th scope="col" class="text-center">確率</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +25,6 @@
             </table>
         </div>
     </table>
-    <a href = "{% url 'predict:form' %}" class="">Predict again</a>
+    <a href = "{% url 'classify:form' %}" class="">try again</a>
 </div>
 {% endblock %}
