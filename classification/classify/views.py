@@ -16,20 +16,19 @@ def classify(request):
     if not request.method == 'POST':
         return redirect('classify:form')
 
-    prediction_form = ClassifyForm(request.POST, request.FILES)
-    if not prediction_form.is_valid():
+    classification_form = ClassifyForm(request.POST, request.FILES)
+    if not classification_form.is_valid():
         raise ValueError('Formが不正です')
 
-    image = Predict(
-        image=prediction_form.cleaned_data['image'],
+    image = Classify(
+        image=classification_form.cleaned_data['image'],
     )
 
-    label, percentage = image.predict()
+    label, percentage = image.classify()
     template = loader.get_template('classify/result.html')
 
     context = {
         'image_name': image.image.name,
-        'image_src': image.image_src(),
         'label': label,
         'percentage': percentage,
     }

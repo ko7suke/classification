@@ -34,11 +34,11 @@ class Classify(models.Model):
             X = [data]
             X = np.asarray(X)
 
-            result = model.classify([X])[0]
-            classified = result.argmax()
-            percentage = int(result[classified] * 100)
+            result = model.predict([X])[0]
+            predicted = result.argmax()
+            percentage = int(result[predicted] * 100)
 
-            return labels[classified], percentage
+            return labels[predicted], percentage
 
     def image_src(self):
         with self.image.open() as img:
