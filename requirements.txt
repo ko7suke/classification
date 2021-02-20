@@ -1,0 +1,8 @@
+django==3.1.6
+django-bootstrap4==1.1.1
+django-widget-tweaks==1.4.5
+h5py==2.10.0
+numpy==1.19.2
+pillow==8.1.0
+scikit-learn==0.23.2
+tensorflow==2.0.0

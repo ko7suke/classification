@@ -1,0 +1,30 @@
+{% extends 'predict/base.html' %}
+{% block title %}推定結果{% endblock %}
+{% block content %}
+<div>
+    <h4 class="mt-4 mb-4 border-bottom">推定結果</h4>
+    <table class="table table-sm">
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">ファイル名</th>
+                        <th scope="col" class="text-center">画像ファイル</th>
+                        <th scope="col" class="text-center">推定結果</th>
+                        <th scope="col" class="text-center">推定確率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-center">{{ image_name }}</th>
+                        <td scope="row" class="text-center"><img class=''  src={{ image_src }} ></td>
+                        <td scope="row" class="text-center">{{ label }}</td>
+                        <td scope="row" class="text-center">{{ percentage }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </table>
+    <a href = "{% url 'predict:form' %}" class="">Predict again</a>
+</div>
+{% endblock %}
